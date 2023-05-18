@@ -17,6 +17,7 @@
 	--team: #f5f4fa;
 	--portfolio-button: #f5f4fa;
 	--icon-fill-color: #afb1b8;
+	--cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
 	color: var(--black);
@@ -129,6 +130,8 @@ button {
 	line-height: 1.15;
 	letter-spacing: 0.02em;
 	color: var(--black);
+	transition: color 250ms var(--cubic-bezier);
+	position: relative;
 }
 .menu-contact-link {
 	font-weight: 500;
@@ -138,6 +141,7 @@ button {
 	color: var(--grey);
 	display: flex;
 	align-items: center;
+	transition: color 250ms var(--cubic-bezier);
 }
 .menu-nav-link:hover,
 .menu-nav-link:focus {
@@ -150,6 +154,17 @@ button {
 .menu-contact-link:hover,
 .menu-contact-link:focus {
 	color: var(--light-blue);
+}
+.current-link::after {
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	bottom: -32px;
+	background-color: var(--light-blue);
+	content: "";
+	width: 100%;
+	height: 4px;
+	border-radius: 2px;
 }
 
 /* główny tytuł strony hero ================================================== */
@@ -246,11 +261,27 @@ button {
 }
 .about-item {
 	margin-right: 30px;
+	position: relative;
 }
 .about-item:last-child {
 	margin-right: 0;
 }
-
+.about-item > .label {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.14;
+	text-align: center;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: var(--white);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	padding: 27px 0;
+	background-color: rgba(47, 48, 58, 0.8);
+}
 /* our team ========================================================================= */
 
 .team {
@@ -309,6 +340,10 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 50%;
+	transition-property: background-color, fill;
+	transition-duration: 250ms;
+	transition-timing-function: var(--cubic-bezier);
 }
 .social-icon-item {
 	width: 44px;
@@ -327,7 +362,6 @@ button {
 .social-link:hover,
 .social-link:focus {
 	background-color: var(--light-blue);
-	border-radius: 50%;
 	fill: var(--white);
 }
 
@@ -356,6 +390,7 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: border-color, fill 250ms var(--cubic-bezier);
 }
 .client-item {
 	margin-right: 30px;
@@ -383,7 +418,7 @@ button {
 .button-item:last-child {
 	margin-right: 0;
 }
-.button-nav button {
+.portfolio-btn {
 	font-family: inherit;
 	font-weight: 500;
 	font-size: 16px;
@@ -394,9 +429,12 @@ button {
 	border-style: hidden;
 	margin: 0 auto;
 	padding: 6px 22px;
+	transition-property: color, background-color, box-shadow;
+	transition-duration: 250ms;
+	transition-timing-function: var(--cubic-bezier);
 }
-.button-nav button:hover,
-.button-nav button:focus {
+.portfolio-btn:hover,
+.portfolio-btn:focus {
 	color: var(--white);
 	background-color: var(--light-blue);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -433,6 +471,7 @@ button {
 .portfolio-img-item {
 	margin-bottom: 30px;
 	margin-right: 30px;
+	transition: box-shadow 250ms var(--cubic-bezier);
 }
 .portfolio-img-item:nth-last-child(-n + 3) {
 	margin-bottom: 0;
@@ -445,7 +484,32 @@ button {
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
 		1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.overlay-div {
+	position: relative;
+	overflow: hidden;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(33, 150, 243, 0.9);
 
+	transform: translateY(100%);
+	transition: transform 250ms var(--cubic-bezier);
+}
+.portfolio-link:hover .overlay {
+	transform: translateY(0);
+}
+
+.overlay p {
+	font-size: 18px;
+	line-height: 1.55;
+	letter-spacing: 0.03em;
+	color: var(--white);
+	padding: 49px 45px 49px 24px;
+}
 /*footer ========================================================================= */
 
 footer {
@@ -509,6 +573,7 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: background-color 250ms var(--cubic-bezier);
 }
 .footer-social-icon-item {
 	width: 44px;
@@ -528,5 +593,4 @@ footer {
 .footer-social-link:hover,
 .footer-social-link:focus {
 	background-color: var(--light-blue);
-	border-radius: 50%;
 }
