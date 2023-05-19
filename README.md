@@ -1,3 +1,3 @@
 # goit-markup-hw-05
 
-miejsce na link do strony 
+https://izustr.github.io/goit-markup-hw-05/
