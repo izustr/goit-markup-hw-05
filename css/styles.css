@@ -147,6 +147,9 @@ button {
 .menu-nav-link:focus {
 	color: var(--light-blue);
 }
+.menu-nav-link.current-link {
+	color: var(--light-blue);
+}
 .menu-icon {
 	fill: currentColor;
 	margin-right: 10px;
