@@ -421,6 +421,33 @@
                     </use>
                 </svg>
             </button>
+            <form>
+                <p class="form-title">Zostaw swoje dane w formularzu poniżej</p>
+                <label class="label-title">
+                    Imie
+                    <input type="text" name="name">
+                </label>
+                <label class="label-title">
+                    Telefon
+                    <input type="tel" name="phone_number">
+                </label>
+                <label class="label-title">
+                    Email
+                    <input type="email" name="email">
+                </label>
+                <label class="label-title">
+                    Komentarz
+                    <textarea name="comment" placeholder="Wprowadź tekst"></textarea>
+                </label>
+                <div class="form-field">
+                    <input type="checkbox" class="form-input" name="statute_acceptance" value="statute" id="statute"
+                        required>
+                    <label class="form-label" for="statute">Oświadczam iż akceptuję&nbsp<a class="regulations-link link"
+                            href="">Regulamin&nbsp</a>i&nbsp<a class="regulations-link link" href="">Politykę
+                            Prywatności.</a></label>
+                </div>
+                <button class="form-btn" type="submit">Wyślij</button>
+            </form>
         </div>
     </div>
     <script src="./modal.js"></script>
